@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class SettingsPage extends StatefulWidget {
-  const SettingsPage({super.key});
+  const SettingsPage({super.key, required this.title});
+
+  final String title;
 
   @override
   State<SettingsPage> createState() => _SettingsPageState();
@@ -17,7 +19,7 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Settings"),
+          title: Text(widget.title),
           automaticallyImplyLeading: false,
           leading: BackButton(
             onPressed: () {
@@ -30,6 +32,43 @@ class _SettingsPageState extends State<SettingsPage> {
             padding: const EdgeInsets.all(20.0),
             child: Column(
               children: [
+                ElevatedButton(
+                  onPressed: () {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text("This is a SnackBar"),
+                      duration: Duration(seconds: 2),
+                      behavior: SnackBarBehavior.floating,
+                      action: SnackBarAction(
+                        label: "Close",
+                        onPressed: () {
+                          ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                        },
+                      ),
+                    ));
+                  },
+                  child: Text("Snackbar"),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: Text("Alert Dialog"),
+                            content: Text("This is an Alert Dialog"),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Text("Close"),
+                              )
+                            ],
+                          );
+                        });
+                  },
+                  child: Text("Alert Dialog"),
+                ),
                 DropdownButton(
                     value: menuItems,
                     items: [
