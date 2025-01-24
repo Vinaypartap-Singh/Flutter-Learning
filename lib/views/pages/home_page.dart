@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/widgets/hero_widget.dart';
+import 'package:flutter_app/data/constants.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -11,7 +11,10 @@ class HomePage extends StatelessWidget {
         padding: EdgeInsets.all(20.0),
         child: Column(
           children: [
-            HeroWidget(),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Image.asset("assets/images/bg.jpg", fit: BoxFit.cover),
+            ),
             Container(
               width: double.infinity,
               padding: EdgeInsets.symmetric(vertical: 20),
@@ -23,10 +26,11 @@ class HomePage extends StatelessWidget {
                     children: [
                       Text(
                         "Welcome To Flutter Application",
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: KTextStyle.title,
+                      ),
+                      Text(
+                        "This is a simple flutter application",
+                        style: KTextStyle.description,
                       ),
                       SizedBox(height: 20),
                       FilledButton(

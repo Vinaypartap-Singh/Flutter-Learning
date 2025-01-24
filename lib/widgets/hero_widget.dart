@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class HeroWidget extends StatelessWidget {
   const HeroWidget({super.key});
@@ -12,8 +13,8 @@ class HeroWidget extends StatelessWidget {
         child: SizedBox(
           height: 300,
           width: double.infinity,
-          child: Image.asset(
-            "assets/images/bg.jpg",
+          child: Lottie.asset(
+            "assets/lotties/heroAnimation.json",
             fit: BoxFit.cover,
           ),
         ),

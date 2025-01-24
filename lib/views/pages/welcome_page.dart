@@ -15,15 +15,43 @@ class WelcomePage extends StatelessWidget {
           padding: EdgeInsets.all(20),
           child: Column(
             children: [
-              Text("Welcome To Flutter Application"),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) {
-                    return WidgetTree();
-                  }));
-                },
-                child: Text("Get Started"),
+              Text(
+                "Welcome To Flutter Application",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 20,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(5),
+                child: FilledButton(
+                  onPressed: () {
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) {
+                      return WidgetTree();
+                    }));
+                  },
+                  style: FilledButton.styleFrom(
+                    minimumSize: Size(double.infinity, 40),
+                  ),
+                  child: Text("Get Started"),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(5),
+                child: OutlinedButton(
+                  onPressed: () {
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) {
+                      return WidgetTree();
+                    }));
+                  },
+                  style: OutlinedButton.styleFrom(
+                    minimumSize: Size(double.infinity, 40),
+                  ),
+                  child: Text("Login"),
+                ),
               )
             ],
           ),
